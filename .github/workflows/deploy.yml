@@ -28,6 +28,9 @@ jobs:
       - name: Run build
         run: yarn build
 
+      - name: Debug key length
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" | wc -c
+
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
